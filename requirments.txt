@@ -1,0 +1,6 @@
+asgiref==3.2.10
+Django==3.1.2
+-e git+https://github.com/encode/django-rest-framework.git@2e721cdbc85a924d0b0f093b86fe1497b58fe287#egg=djangorestframework
+Pygments==2.7.1
+pytz==2020.1
+sqlparse==0.4.1
