@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from quickstart.serializers import UserSerializer, GroupSerializer
+from rip_auth.serializers import UserSerializer, GroupSerializer
 from rest_framework import generics
 
 class UserList(generics.ListAPIView):

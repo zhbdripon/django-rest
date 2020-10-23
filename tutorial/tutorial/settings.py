@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'quickstart.apps.QuickstartConfig',
+    'rip_auth.apps.Rip_authConfig',
     'snippets.apps.SnippetsConfig',
 ]
 

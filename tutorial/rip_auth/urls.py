@@ -1,5 +1,5 @@
 from django.urls import path, include
-from quickstart.views import UserList, UserDetail, GroupList, GroupDetail
+from rip_auth.views import UserList, UserDetail, GroupList, GroupDetail
 from rest_framework.authtoken import views
 
 urlpatterns = [

@@ -18,8 +18,8 @@ from django.urls import path, include
 from rest_framework import routers
 
 urlpatterns = [
+    path('', include('rip_auth.urls')),
     path('', include('snippets.urls')),
-    path('', include('quickstart.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
