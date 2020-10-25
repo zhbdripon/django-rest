@@ -1,11 +1,27 @@
 from django.urls import path
-from snippets import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
+from snippets.views import SnippetViewSet
+from rest_framework import renderers
+
+snippet_list = SnippetViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
+snippet_detail = SnippetViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+snippet_highlight = SnippetViewSet.as_view({
+    'get': 'highlight'
+},renderer_classes=[renderers.StaticHTMLRenderer])
+
 urlpatterns = [
-    path('snippets/', views.SnippetList.as_view(), name='snippet-list'),
-    path('snippets/<int:pk>/', views.SnippetDetail.as_view(), name='snippet-detail'),
-    path('snippets/<int:pk>/highlight/', views.SnippetHighlight.as_view(),name='snippet-highlight'),
+    path('snippets/', snippet_list, name='snippet-list'),
+    path('snippets/<int:pk>/', snippet_detail, name='snippet-detail'),
+    path('snippets/<int:pk>/highlight/', snippet_highlight,name='snippet-highlight'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
