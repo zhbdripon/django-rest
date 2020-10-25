@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
+
+from snippets.urls import router as snippets_route
+from rip_auth.urls import router as rip_auth_route
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.registry.extend(snippets_route.registry)
+router.registry.extend(rip_auth_route.registry)
 
 urlpatterns = [
-    path('', include('rip_auth.urls')),
-    path('', include('snippets.urls')),
+    path('',include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
